@@ -1,0 +1,11 @@
+-- Hello I'm a comment
+
+(print "Hello World")
+
+((lambda (name)
+  (print "Hello" name))
+ (prompt "Enter Name"))
+
+(+ 1 2 3 4)
+
+(list true false null 1 2 "Hello")

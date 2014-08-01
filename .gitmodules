@@ -1,0 +1,40 @@
+[submodule "lib/js-git"]
+	url = git@github.com:creationix/js-git.git
+	ref = refs/heads/master
+	prefix = hybpnziq-3982bl
+	path = lib/js-git
+[submodule "lib/gen-run"]
+	url = git@github.com:creationix/gen-run.git
+	ref = refs/heads/master
+	prefix = hybq41i8-1eahrhr
+	path = lib/gen-run
+[submodule "lib/bodec"]
+	url = git@github.com:creationix/bodec.git
+	ref = refs/heads/master
+	prefix = hybq70pv-v7xhrp
+	path = lib/bodec
+[submodule "lib/codemirror"]
+	url = git@github.com:marijnh/codemirror.git
+	ref = refs/heads/master
+	prefix = hybrtn95-1mf61le
+	path = lib/codemirror
+[submodule "lib/cm-jackl-mode"]
+	url = git@github.com:creationix/cm-jackl-mode.git
+	ref = refs/heads/master
+	prefix = hybrtysg-60ty85
+	path = lib/cm-jackl-mode
+[submodule "lib/cm-notebook-theme"]
+	url = git@github.com:creationix/cm-notebook-theme.git
+	ref = refs/heads/master
+	prefix = hybsftsj-1uc8cap
+	path = lib/cm-notebook-theme
+[submodule "lib/wheaty-cjs-bundler"]
+	url = git@github.com:creationix/wheaty-cjs-bundler.git
+	ref = refs/heads/master
+	prefix = hybt1iz9-a9i9c2
+	path = lib/wheaty-cjs-bundler
+[submodule "lib/domchanger"]
+	url = git@github.com:creationix/domchanger.git
+	ref = refs/heads/master
+	prefix = hyc3qe54-17f7qz0
+	path = lib/domchanger

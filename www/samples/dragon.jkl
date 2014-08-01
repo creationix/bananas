@@ -1,0 +1,107 @@
+(def (Dragon name)
+  (def asleep false)
+  (def stuff-in-belly 10)    -- He's full.
+  (def stuff-in-intestine 0) -- He doesn't need to go.
+
+  (print name " is born.")
+
+  (def (feed)
+    (print "You feed " name ".")
+    (set stuff-in-belly 10)
+    (passage-of-time)
+  )
+
+  (def (walk)
+    (print "You walk " name ".")
+    (set stuff-in-intestine 0)
+    (passage-of-time)
+  )
+
+  (def (put-to-bed)
+    (print "You put " name " to bed.")
+    (set asleep true)
+    (for (i 3)
+      (if asleep (passage-of-time))
+      (if asleep
+        (print name " snores, filling the room with smoke."))
+  	)
+    (if asleep
+      (print name " wakes up slowly.")
+    )
+  )
+
+  (def (toss)
+    (print "You toss " name " up into the air.")
+    (print "He gigles, which singes your eyebrows.")
+    (passage-of-time)
+  )
+
+  (def (rock)
+    (print "You rock " name " gently.")
+    (set asleep true)
+    (print "He briefly dozes off...")
+    (passage-of-time)
+    (if asleep
+      (set asleep false)
+      (print "...but wakes when you stop.")
+    )
+  )
+
+  (def (hungry?) (≤ stuff-in-belly 2))
+
+  (def (poopy?) (≥ stuff-in-intestine 8))
+
+  (def (passage-of-time)
+    (if (≤ stuff-in-belly 0) -- Our dragon is starving
+      (if asleep
+        (set asleep false)
+        (print "He wakes up suddenly!")
+      )
+      (print name " is starving! In desperation, he ate YOU!")
+      (abort "died")
+    )
+
+    -- Move food from belly to intestine
+    (set stuff-in-belly (- stuff-in-belly 1))
+    (set stuff-in-intestine (+ stuff-in-intestine 1))
+
+    (if (≥ stuff-in-intestine 10)
+      (set stuff-in-intestine 0)
+      (print "Whoops! " name " had an accident...")
+    )
+
+    (if (hungry?)
+      (if asleep
+        (set asleep false)
+        (print "He wakes up suddenly!")
+      )
+      (print name ",s stomach grumbles")
+    )
+
+    (if (poopy?)
+      (if asleep
+        (set asleep false)
+        (print "He wakes up suddenly!")
+      )
+      (print name " does the potty dance...")
+    )
+  )
+
+  -- Export the public interface to this closure object.
+  [ feed: feed
+    walk: walk
+    put-to-bed: put-to-bed
+    toss: toss
+    rock: rock ]
+)
+
+(def pet (Dragon "Norbert"))
+(pet.feed)
+(pet.toss)
+(pet.walk)
+(pet.put-to-bed)
+(pet.rock)
+(pet.put-to-bed)
+(pet.put-to-bed)
+(pet.put-to-bed)
+(pet.put-to-bed)

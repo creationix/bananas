@@ -1,0 +1,76 @@
+-- Inverted question mark!
+(macro (¿ no yes cond)
+  [[:? cond yes no]]
+)
+
+-- Sample output for 3x3 maze
+-- ██████████████
+-- ██      ██  ██
+-- ██  ██████  ██
+-- ██          ██
+-- ██  ██  ██████
+-- ██  ██      ██
+-- ██████████████
+
+(def width 30)
+(def height 30)
+(def size (× width height))
+
+-- Cells point to parent
+(def cells (map (i size) [i null]))
+
+-- Walls flag right and bottom
+(def walls (map (i size) [true true]))
+
+-- Define the sequence of index and right/left
+(def ww (- width 1))
+(def hh (- height 1))
+(def sequence (shuffle (concat
+  (map (i size)
+    (if (< (% i width) ww) [true i])
+  )
+  (map (i size)
+    (if (< (÷ i width) hh) [false i])
+  )
+)))
+
+-- Find the root of a set cell -> cell
+(def (find-root cell)
+  (? (. cell 1) (find-root (. cell 1)) cell)
+)
+
+(for (item sequence)
+  (def i (. item 1))
+  (def root (find-root (. cells i)))
+  (def other (find-root (. cells (+ i (? (. item 0) 1 width)))))
+  (if (≠ (. root 0) (. other 0))
+    (. root 1 other)
+    (. (. walls i) (? (. item 0) 0 1) false)
+  )
+)
+
+(def w (× width 2))
+(def h (× height 2))
+(join "\n" (map (y (+ h 1))
+  (join "" (map (x (+ w 1))
+    (¿ "  " "██" (or
+      -- Four outer edges are always true
+      (= x 0) (= y 0) (= x w) (= y h)
+      -- Inner cells are more complicated
+      (? (% y 2)
+        (? (% x 2)
+           -- cell middle
+          false
+          -- cell right
+          (. (. walls (+ (÷ (- x 1) 2) (× (÷ y 2) width))) 0)
+        )
+        (? (% x 2)
+          -- cell bottom
+          (. (. walls (+ (÷ x 2) (× (÷ (- y 1) 2) width))) 1)
+          -- cell corner
+          true
+        )
+      )
+    ))
+  ))
+))
