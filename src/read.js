@@ -92,6 +92,9 @@ function parse(tokens) {
         if (token.char === "]") {
           value.unshift({id:"list"});
         }
+        else if (token.char === "}") {
+          value.unshift(value.splice(1, 1)[0]);
+        }
         current = stack.pop();
         current.push(value);
       }
