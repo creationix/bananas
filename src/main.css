@@ -26,12 +26,12 @@ body {
 pre.CodeMirror {
   margin: 0;
   white-space: pre-wrap;
+  overflow: auto;
 }
 
 .CodeMirror {
   font-size: 12pt;
   line-height: 1.3em;
-  overflow: auto;
 }
 
 .window {
