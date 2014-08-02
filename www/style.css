@@ -1,0 +1,20 @@
+#!js
+
+var pathJoin = require('path').join;
+var files = [
+  pathJoin(__dirname, "../lib/codemirror/lib/codemirror.css"),
+  pathJoin(__dirname, "../lib/cm-notebook-theme/notebook-dark.css"),
+  pathJoin(__dirname, "../lib/cm-notebook-theme/notebook.css"),
+  pathJoin(__dirname, "../src/main.css"),
+];
+
+module.exports = function* (pathToEntry) {
+  var css = "";
+  for (var i = 0; i < files.length; i++) {
+    var file = files[i];
+    css += "/* " + file + "*/\n";
+    var meta = yield* pathToEntry(file);
+    css += (yield meta.repo.loadAs("text", meta.hash)) + "\n";
+  }
+  return [200, {"Content-Type": "text/css; charset=UTF-8"}, css];
+};

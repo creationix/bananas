@@ -1,17 +1,25 @@
 <!doctype html>
 <html>
 <head>
-  <title>Parser Test</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
-  <link rel="stylesheet" href="css/codemirror.css">
-  <link rel="stylesheet" href="css/notebook.css">
-  <link rel="stylesheet" href="css/notebook-dark.css">
-  <link rel="stylesheet" href="css/main.css">
+  <title>Bananas Parser Test</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <script src="test.js" charset="utf-8"></script>
+  <p>Loading...</p>
+  <script>
+    // Load the plain or regenerated version depending on support result.
+    (function () {
+      var tag = document.createElement("script");
+      tag.setAttribute("async", "async");
+      tag.setAttribute("encoding", "utf-8");
+      var url = "test.js";
+      // Detect if the browser supports ES6 generators
+      try { eval("(function*(){})"); }
+      catch (err) { url += "?regenerate"; }
+      tag.setAttribute("src", url);
+      document.body.appendChild(tag);
+    }());
+  </script>
 </body>
 </html>

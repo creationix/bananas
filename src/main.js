@@ -1,5 +1,5 @@
 "use strict";
-
+document.body.textContent = "";
 // Load our UI related libraries
 var domChanger = require('domchanger');
 var CodeMirrorEditor = require('./ui/code-mirror-editor');

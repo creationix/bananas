@@ -28,13 +28,18 @@
 	ref = refs/heads/master
 	prefix = hybsftsj-1uc8cap
 	path = lib/cm-notebook-theme
-[submodule "lib/wheaty-cjs-bundler"]
-	url = git@github.com:creationix/wheaty-cjs-bundler.git
-	ref = refs/heads/master
-	prefix = hybt1iz9-a9i9c2
-	path = lib/wheaty-cjs-bundler
 [submodule "lib/domchanger"]
 	url = git@github.com:creationix/domchanger.git
 	ref = refs/heads/master
 	prefix = hyc3qe54-17f7qz0
 	path = lib/domchanger
+[submodule "lib/tedit-regenerator"]
+	url = git@github.com:creationix/tedit-regenerator.git
+	ref = refs/heads/master
+	prefix = hyd35fqe-b7k887
+	path = lib/tedit-regenerator
+[submodule "lib/wheaty-cjs-bundler"]
+	url = git@github.com:creationix/wheaty-cjs-bundler.git
+	ref = refs/heads/master
+	prefix = hyd49tip-1dzibyb
+	path = lib/wheaty-cjs-bundler
