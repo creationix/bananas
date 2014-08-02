@@ -49,12 +49,12 @@ function write(value) {
     return sum + item.length;
   }, props.length);
 
-  if (firstLength + restLength + propsLength < 80) {
+  if (firstLength + restLength + propsLength < 60) {
     return "(" +
       first.concat(props).concat(rest).join(" ") +
       ")";
   }
-  if (firstLength + propsLength < 80) {
+  if (firstLength + propsLength < 60) {
     return "(" +
       first.concat(props).join(" ") +
       "\n  " +
