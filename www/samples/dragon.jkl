@@ -32,7 +32,7 @@
 
   (def (toss)
     (print "You toss " name " up into the air.")
-    (print "He gigles, which singes your eyebrows.")
+    (print "He giggles, which singes your eyebrows.")
     (passage-of-time)
   )
 
